@@ -57,7 +57,7 @@
                     android:paddingStart="4dp"
                     android:paddingTop="4dp"
                     android:paddingBottom="4dp"
-                    android:text="پیشنهاد ویژه"
+                    android:text="@string/best_suggest"
                     android:textColor="@color/white"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
@@ -71,7 +71,7 @@
                     android:padding="6dp"
                     android:paddingStart="10dp"
                     android:paddingEnd="10dp"
-                    android:text="3 D"
+                    android:text="@string/three_d"
                     android:textColor="@color/gray"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toTopOf="@+id/play"
@@ -85,13 +85,13 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:background="@drawable/bg_3d"
-                    android:drawableRight="@drawable/baseline_play_arrow_24"
-                    android:drawableTint="@color/gray"
                     android:elevation="4dp"
                     android:paddingRight="18dp"
                     android:paddingBottom="4dp"
                     android:textColor="@color/gray"
                     android:textStyle="bold"
+                    app:drawableRightCompat="@drawable/baseline_play_arrow_24"
+                    app:drawableTint="@color/gray"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/threeD"
@@ -121,6 +121,7 @@
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:layout_marginTop="12dp"
+                        android:contentDescription="@null"
                         android:src="@drawable/baseline_more_vert_24"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
@@ -135,6 +136,7 @@
                         android:src="@drawable/baseline_local_grocery_store_24"
                         app:layout_constraintStart_toEndOf="@+id/img_menu"
                         app:layout_constraintTop_toTopOf="parent"
+                        android:contentDescription="@null"
                         app:tint="@color/gray" />
 
 
@@ -145,6 +147,7 @@
                         android:layout_marginTop="12dp"
                         android:layout_marginEnd="10dp"
                         android:rotation="180"
+                        android:contentDescription="@null"
                         android:src="@drawable/baseline_arrow_back_24"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
@@ -180,11 +183,10 @@
                     android:id="@+id/img_share"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="12dp"
+                    android:contentDescription="@null"
                     android:src="@drawable/baseline_share_24"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toTopOf="@+id/top_guideline"
                     app:tint="@color/gray" />
 
                 <ImageView
@@ -192,10 +194,10 @@
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginStart="12dp"
-                    android:layout_marginTop="12dp"
+                    android:contentDescription="@null"
                     android:src="@drawable/baseline_notifications_24"
                     app:layout_constraintStart_toEndOf="@+id/img_share"
-                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/top_guideline"
                     app:tint="@color/gray" />
 
                 <ImageView
@@ -203,42 +205,38 @@
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginStart="12dp"
-                    android:layout_marginTop="12dp"
+                    android:contentDescription="@null"
                     android:src="@drawable/baseline_favorite_24"
                     app:layout_constraintStart_toEndOf="@+id/img_notif"
-                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/top_guideline"
                     app:tint="@color/gray" />
 
                 <View
                     android:id="@+id/redColor"
                     android:layout_width="15dp"
                     android:layout_height="15dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginEnd="12dp"
                     android:background="@drawable/red_color"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintEnd_toStartOf="@+id/right_guideline"
+                    app:layout_constraintTop_toTopOf="@+id/top_guideline" />
 
                 <View
                     android:id="@+id/yellowColor"
                     android:layout_width="15dp"
                     android:layout_height="15dp"
-                    android:layout_marginTop="12dp"
                     android:layout_marginEnd="6dp"
                     android:background="@drawable/yellow_color"
                     app:layout_constraintEnd_toStartOf="@+id/redColor"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="@+id/top_guideline" />
 
                 <TextView
                     android:id="@+id/txtTitle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:layout_marginEnd="12dp"
-                    android:text="گوشی آیفون 6s اپل | Apple iPhone 6s"
+                    android:text="@string/product_title"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/right_guideline"
                     app:layout_constraintTop_toBottomOf="@+id/redColor" />
 
                 <TextView
@@ -246,11 +244,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:layout_marginEnd="12dp"
-                    android:text="Apple IPhone 6s 64GB Mobile Phone"
+                    android:text="@string/product_description"
                     android:textColor="@color/gray"
                     android:textSize="12sp"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/right_guideline"
                     app:layout_constraintTop_toBottomOf="@id/txtTitle" />
 
                 <View
@@ -269,24 +266,21 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:text="رنگ"
+                    android:text="@string/product_color"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="@+id/detail_layout"
+                    app:layout_constraintEnd_toStartOf="@+id/right_guideline"
                     app:layout_constraintTop_toBottomOf="@+id/view_div_sahdow" />
 
                 <TextView
                     android:id="@+id/txt_num_color"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:text="3 رنگ"
+                    android:text="@string/product_number_color"
                     android:textColor="@color/gray"
                     android:textSize="14sp"
-                    app:layout_constraintStart_toStartOf="@id/detail_layout"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
                     app:layout_constraintTop_toBottomOf="@+id/view_div_sahdow" />
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -297,7 +291,7 @@
                     android:layout_marginEnd="10dp"
                     android:orientation="horizontal"
                     app:layout_constraintEnd_toEndOf="@+id/detail_layout"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
                     app:layout_constraintTop_toBottomOf="@+id/txt_color"
                     app:reverseLayout="true"
                     tools:listitem="@layout/product_colors_item" />
@@ -307,9 +301,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="26dp"
-                    android:layout_marginEnd="10dp"
+                    android:contentDescription="@null"
                     android:src="@drawable/baseline_assignment_turned_in_24"
-                    app:layout_constraintEnd_toEndOf="@+id/detail_layout"
+                    app:layout_constraintEnd_toStartOf="@+id/right_guideline"
                     app:layout_constraintTop_toBottomOf="@+id/rcColor"
                     app:tint="@color/gray" />
 
@@ -318,7 +312,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
-                    android:text="گارانتی 18 ماه دیجی کالا"
+                    android:text="@string/warranty"
                     android:textAlignment="center"
                     android:textColor="@color/gray"
                     android:textStyle="bold"
@@ -342,9 +336,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:layout_marginEnd="10dp"
+                    android:contentDescription="@null"
                     android:src="@drawable/baseline_assignment_turned_in_24"
-                    app:layout_constraintEnd_toEndOf="@+id/detail_layout"
+                    app:layout_constraintEnd_toStartOf="@+id/right_guideline"
                     app:layout_constraintTop_toTopOf="@+id/viewDiv"
                     app:tint="@color/gray" />
 
@@ -353,7 +347,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
-                    android:text="فروش توسط دیجی کالا"
+                    android:text="@string/sell_digikala"
                     android:textAlignment="center"
                     android:textColor="@color/gray"
                     android:textStyle="bold"
@@ -366,9 +360,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:layout_marginEnd="10dp"
+                    android:contentDescription="@null"
                     android:src="@drawable/baseline_assignment_turned_in_24"
-                    app:layout_constraintEnd_toEndOf="@id/detail_layout"
+                    app:layout_constraintEnd_toEndOf="@id/right_guideline"
                     app:layout_constraintTop_toBottomOf="@id/img_digikala"
                     app:tint="@color/gray" />
 
@@ -377,7 +371,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
-                    android:text="آماده ارسال از انبار دیجی کالا"
+                    android:text="@string/post_digikala"
                     android:textAlignment="center"
                     android:textColor="@color/gray"
                     android:textStyle="bold"
@@ -399,14 +393,36 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
                     android:layout_marginTop="16dp"
-                    android:layout_marginBottom="16dp"
-                    android:text="1.870,000 تومان"
+                    android:text="@string/product_price"
                     android:textColor="@color/green"
                     android:textSize="18sp"
-                    app:layout_constraintStart_toStartOf="@id/detail_layout"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
                     app:layout_constraintTop_toBottomOf="@id/viewDiv1" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="12dp" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/right_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/detail_layout"
+                    app:layout_constraintGuide_end="12dp"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/top_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_begin="12dp" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="best_suggest">پیشنهاد ویژه</string>
+    <string name="three_d">3 D</string>
+    <string name="product_title">گوشی آیفون 6s اپل | Apple iPhone 6s</string>
+    <string name="product_description">Apple IPhone 6s 64GB Mobile Phone</string>
+    <string name="product_color">رنگ</string>
+    <string name="product_number_color">3 رنگ</string>
+    <string name="warranty">گارانتی 18 ماه دیجی کالا</string>
+    <string name="sell_digikala">فروش توسط دیجی کالا</string>
+    <string name="post_digikala">آماده ارسال از انبار دیجی کالا</string>
+    <string name="product_price">1.870,000 تومان</string>
 </resources>
