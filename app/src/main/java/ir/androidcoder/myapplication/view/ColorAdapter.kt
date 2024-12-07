@@ -3,13 +3,12 @@ package ir.androidcoder.myapplication.view
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.graphics.drawable.toDrawable
 import androidx.recyclerview.widget.RecyclerView
-import ir.androidcoder.myapplication.databinding.RowColorsBinding
+import ir.androidcoder.myapplication.databinding.ProductColorsItemBinding
 
 class ColorAdapter(private val data: List<AllColor>) : RecyclerView.Adapter<ColorAdapter.ColorViewHolder>() {
 
-    private lateinit var binding : RowColorsBinding
+    private lateinit var binding : ProductColorsItemBinding
 
     inner class ColorViewHolder(item : View) : RecyclerView.ViewHolder(item){
         fun binds(allColor: AllColor) {
@@ -23,7 +22,7 @@ class ColorAdapter(private val data: List<AllColor>) : RecyclerView.Adapter<Colo
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ColorViewHolder {
-        binding = RowColorsBinding.inflate(LayoutInflater.from(parent.context))
+        binding = ProductColorsItemBinding.inflate(LayoutInflater.from(parent.context))
         return ColorViewHolder(binding.root)
     }
 

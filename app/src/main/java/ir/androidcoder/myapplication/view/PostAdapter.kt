@@ -5,13 +5,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import ir.androidcoder.domain.model.PostDEntity
-import ir.androidcoder.myapplication.databinding.RcPostItemBinding
+import ir.androidcoder.myapplication.databinding.RvPostItemBinding
 
 class PostAdapter(private val data: List<PostDEntity>) : RecyclerView.Adapter<PostAdapter.PostViewHolder>() {
 
-    lateinit var binding: RcPostItemBinding
-
-    inner class PostViewHolder(view : View) : RecyclerView.ViewHolder(view){
+    inner class PostViewHolder(private var binding: RvPostItemBinding) : RecyclerView.ViewHolder(binding.root){
 
         fun bind(postDEntity: PostDEntity) {
 
@@ -27,8 +25,8 @@ class PostAdapter(private val data: List<PostDEntity>) : RecyclerView.Adapter<Po
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
-        binding = RcPostItemBinding.inflate(LayoutInflater.from(parent.context))
-        return PostViewHolder(binding.root)
+        val binding = RvPostItemBinding.inflate(LayoutInflater.from(parent.context))
+        return PostViewHolder(binding)
     }
 
     override fun getItemCount(): Int = data.size

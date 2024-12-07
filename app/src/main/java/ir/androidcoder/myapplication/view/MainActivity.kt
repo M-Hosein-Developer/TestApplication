@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import dagger.hilt.android.AndroidEntryPoint
 import ir.androidcoder.myapplication.R
-import ir.androidcoder.myapplication.databinding.TestActivityBinding
+import ir.androidcoder.myapplication.databinding.ActivityDigikalaBinding
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -18,14 +18,14 @@ class MainActivity : AppCompatActivity() {
 //    lateinit var adapter : PostAdapter
 
 
-    private lateinit var binding : TestActivityBinding
+    private lateinit var binding : ActivityDigikalaBinding
     private lateinit var adapter: ColorAdapter
-    private lateinit var pagedAdapter: PagerAdapter1
+    private lateinit var pagedAdapter: ProductPagerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        binding = TestActivityBinding.inflate(layoutInflater)
+        binding = ActivityDigikalaBinding.inflate(layoutInflater)
         setContentView(binding.root)
         //        initUi(mainViewModel)
 
@@ -60,13 +60,13 @@ class MainActivity : AppCompatActivity() {
     private fun colorsAdapter(list: List<AllColor>) {
         binding.apply {
             adapter = ColorAdapter(list)
-            rcColor.adapter = adapter
-            rcColor.layoutManager = LinearLayoutManager(this@MainActivity , LinearLayoutManager.HORIZONTAL , true)
+            rcColor?.adapter = adapter
+            rcColor?.layoutManager = LinearLayoutManager(this@MainActivity , LinearLayoutManager.HORIZONTAL , true)
         }
     }
 
     private fun imageSlider(data: List<Int>) {
-        pagedAdapter = PagerAdapter1(data)
+        pagedAdapter = ProductPagerAdapter(data)
         binding.imageView.adapter = pagedAdapter
         setupDotsIndicator(binding.imageView, binding.dotsLayout, data.size)
     }

@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--Appbar-->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!--Toolbar-->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            app:layout_collapseMode="pin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_scrollFlags="scroll|enterAlways">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:background="@color/white"
+                android:paddingTop="20dp"
+                app:layout_collapseMode="parallax">
+
+                <ImageView
+                    android:id="@+id/img_menu"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/baseline_more_vert_24"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/gray" />
+
+                <ImageView
+                    android:id="@+id/img_stor"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/baseline_local_grocery_store_24"
+                    app:layout_constraintStart_toEndOf="@+id/img_menu"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/gray" />
+
+
+                <ImageView
+                    android:id="@+id/img_back"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="10dp"
+                    android:rotation="180"
+                    android:src="@drawable/baseline_arrow_back_24"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/gray" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!--Image Slider-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ima_slider_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        android:paddingTop="56dp"
+        android:paddingBottom="12dp"
+        app:layout_collapseMode="parallax"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/imageView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/dotsLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="24dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/bg_sug"
+            android:padding="4dp"
+            android:paddingStart="4dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:text="پیشنهاد ویژه"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/threeD"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_3d"
+            android:elevation="4dp"
+            android:padding="6dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="3 D"
+            android:textColor="@color/gray"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/play"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/play"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_3d"
+            android:drawableRight="@drawable/baseline_play_arrow_24"
+            android:drawableTint="@color/gray"
+            android:elevation="4dp"
+            android:paddingRight="18dp"
+            android:paddingBottom="4dp"
+            android:textColor="@color/gray"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/threeD"
+            app:tint="@color/gray" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--Scroll View-->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/lightGray"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ima_slider_layout"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
+
+        <!--Detail-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/detail_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="16dp"
+            android:background="@color/white"
+            android:elevation="2dp"
+            android:paddingBottom="12dp">
+
+            <ImageView
+                android:id="@+id/img_share"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/baseline_share_24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/gray" />
+
+            <ImageView
+                android:id="@+id/img_notif"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/baseline_notifications_24"
+                app:layout_constraintStart_toEndOf="@+id/img_share"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/gray" />
+
+            <ImageView
+                android:id="@+id/img_fav"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/baseline_favorite_24"
+                app:layout_constraintStart_toEndOf="@+id/img_notif"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/gray" />
+
+            <View
+                android:id="@+id/redColor"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="12dp"
+                android:background="@drawable/red_color"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/yellowColor"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/yellow_color"
+                app:layout_constraintEnd_toStartOf="@+id/redColor"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="12dp"
+                android:text="گوشی آیفون 6s اپل | Apple iPhone 6s"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/redColor" />
+
+            <TextView
+                android:id="@+id/txtDesc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="12dp"
+                android:text="Apple IPhone 6s 64GB Mobile Phone"
+                android:textColor="@color/gray"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtTitle" />
+
+            <View
+                android:id="@+id/view_div_sahdow"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginVertical="8dp"
+                android:layout_marginTop="12dp"
+                android:alpha="0.5"
+                android:background="@color/gray"
+                android:elevation="1dp"
+                app:layout_constraintTop_toBottomOf="@id/txtDesc" />
+
+            <TextView
+                android:id="@+id/txt_color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:text="رنگ"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/detail_layout"
+                app:layout_constraintTop_toBottomOf="@+id/view_div_sahdow" />
+
+            <TextView
+                android:id="@+id/txt_num_color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:text="3 رنگ"
+                android:textColor="@color/gray"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@id/detail_layout"
+                app:layout_constraintTop_toBottomOf="@+id/view_div_sahdow" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcColor"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="26dp"
+                android:layout_marginEnd="10dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="@+id/detail_layout"
+                app:layout_constraintTop_toBottomOf="@+id/txt_color"
+                app:reverseLayout="true"
+                tools:listitem="@layout/product_colors_item" />
+
+            <ImageView
+                android:id="@+id/img_warranty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="26dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/baseline_assignment_turned_in_24"
+                app:layout_constraintEnd_toEndOf="@+id/detail_layout"
+                app:layout_constraintTop_toBottomOf="@+id/rcColor"
+                app:tint="@color/gray" />
+
+            <TextView
+                android:id="@+id/txtGar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text="گارانتی 18 ماه دیجی کالا"
+                android:textAlignment="center"
+                android:textColor="@color/gray"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/img_warranty"
+                app:layout_constraintEnd_toStartOf="@id/img_warranty"
+                app:layout_constraintTop_toTopOf="@id/img_warranty" />
+
+            <View
+                android:id="@+id/viewDiv"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="8dp"
+                android:alpha="0.3"
+                android:background="@color/gray"
+                app:layout_constraintEnd_toEndOf="@id/detail_layout"
+                app:layout_constraintTop_toBottomOf="@+id/img_warranty" />
+
+            <ImageView
+                android:id="@+id/img_digikala"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/baseline_assignment_turned_in_24"
+                app:layout_constraintEnd_toEndOf="@+id/detail_layout"
+                app:layout_constraintTop_toTopOf="@+id/viewDiv"
+                app:tint="@color/gray" />
+
+            <TextView
+                android:id="@+id/txtGar1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text="فروش توسط دیجی کالا"
+                android:textAlignment="center"
+                android:textColor="@color/gray"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/img_digikala"
+                app:layout_constraintEnd_toStartOf="@id/img_digikala"
+                app:layout_constraintTop_toTopOf="@+id/img_digikala" />
+
+            <ImageView
+                android:id="@+id/img_post"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/baseline_assignment_turned_in_24"
+                app:layout_constraintEnd_toEndOf="@id/detail_layout"
+                app:layout_constraintTop_toBottomOf="@id/img_digikala"
+                app:tint="@color/gray" />
+
+            <TextView
+                android:id="@+id/txtGar2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text="آماده ارسال از انبار دیجی کالا"
+                android:textAlignment="center"
+                android:textColor="@color/gray"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/img_post"
+                app:layout_constraintEnd_toStartOf="@id/img_post"
+                app:layout_constraintTop_toTopOf="@id/img_post" />
+
+            <View
+                android:id="@+id/viewDiv1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="8dp"
+                android:alpha="0.3"
+                android:background="@color/gray"
+                app:layout_constraintEnd_toEndOf="@id/detail_layout"
+                app:layout_constraintTop_toBottomOf="@+id/img_post" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="1.870,000 تومان"
+                android:textColor="@color/green"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="@id/detail_layout"
+                app:layout_constraintTop_toBottomOf="@id/viewDiv1" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

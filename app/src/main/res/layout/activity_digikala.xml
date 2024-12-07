@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/lightGray"
     android:layout_height="match_parent">
 
     <!--Appbar-->
@@ -165,18 +166,14 @@
         android:background="@color/lightGray"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/lightGray"
-            android:orientation="vertical">
-
             <!--Detail-->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/lightGray"
-                android:elevation="6dp"
+                android:layout_margin="16dp"
+                android:elevation="2dp"
+                android:id="@+id/detail_layout"
+                android:layout_height="match_parent"
+                android:background="@color/white"
                 android:paddingBottom="12dp">
 
                 <ImageView
@@ -201,7 +198,6 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:tint="@color/gray" />
 
-
                 <ImageView
                     android:id="@+id/img_fav"
                     android:layout_width="25dp"
@@ -212,7 +208,6 @@
                     app:layout_constraintStart_toEndOf="@+id/img_notif"
                     app:layout_constraintTop_toTopOf="parent"
                     app:tint="@color/gray" />
-
 
                 <View
                     android:id="@+id/redColor"
@@ -233,7 +228,6 @@
                     android:background="@drawable/yellow_color"
                     app:layout_constraintEnd_toStartOf="@+id/redColor"
                     app:layout_constraintTop_toTopOf="parent" />
-
 
                 <TextView
                     android:id="@+id/txtTitle"
@@ -259,200 +253,162 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/txtTitle" />
 
+                <View
+                    android:id="@+id/view_div_sahdow"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="8dp"
+                    android:layout_marginTop="12dp"
+                    android:alpha="0.5"
+                    android:background="@color/gray"
+                    android:elevation="1dp"
+                    app:layout_constraintTop_toBottomOf="@id/txtDesc" />
+
+                <TextView
+                    android:id="@+id/txt_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:text="رنگ"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/detail_layout"
+                    app:layout_constraintTop_toBottomOf="@+id/view_div_sahdow" />
+
+                <TextView
+                    android:id="@+id/txt_num_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:text="3 رنگ"
+                    android:textColor="@color/gray"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="@id/detail_layout"
+                    app:layout_constraintTop_toBottomOf="@+id/view_div_sahdow" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcColor"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="26dp"
+                    android:layout_marginEnd="10dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="@+id/detail_layout"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_color"
+                    app:reverseLayout="true"
+                    tools:listitem="@layout/product_colors_item" />
+
+                <ImageView
+                    android:id="@+id/img_warranty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="26dp"
+                    android:layout_marginEnd="10dp"
+                    android:src="@drawable/baseline_assignment_turned_in_24"
+                    app:layout_constraintEnd_toEndOf="@+id/detail_layout"
+                    app:layout_constraintTop_toBottomOf="@+id/rcColor"
+                    app:tint="@color/gray" />
+
+                <TextView
+                    android:id="@+id/txtGar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:text="گارانتی 18 ماه دیجی کالا"
+                    android:textAlignment="center"
+                    android:textColor="@color/gray"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/img_warranty"
+                    app:layout_constraintEnd_toStartOf="@id/img_warranty"
+                    app:layout_constraintTop_toTopOf="@id/img_warranty" />
+
+                <View
+                    android:id="@+id/viewDiv"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginVertical="8dp"
+                    android:alpha="0.3"
+                    android:background="@color/gray"
+                    app:layout_constraintEnd_toEndOf="@id/detail_layout"
+                    app:layout_constraintTop_toBottomOf="@+id/img_warranty" />
+
+                <ImageView
+                    android:id="@+id/img_digikala"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="10dp"
+                    android:src="@drawable/baseline_assignment_turned_in_24"
+                    app:layout_constraintEnd_toEndOf="@+id/detail_layout"
+                    app:layout_constraintTop_toTopOf="@+id/viewDiv"
+                    app:tint="@color/gray" />
+
+                <TextView
+                    android:id="@+id/txtGar1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:text="فروش توسط دیجی کالا"
+                    android:textAlignment="center"
+                    android:textColor="@color/gray"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/img_digikala"
+                    app:layout_constraintEnd_toStartOf="@id/img_digikala"
+                    app:layout_constraintTop_toTopOf="@+id/img_digikala" />
+
+                <ImageView
+                    android:id="@+id/img_post"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="10dp"
+                    android:src="@drawable/baseline_assignment_turned_in_24"
+                    app:layout_constraintEnd_toEndOf="@id/detail_layout"
+                    app:layout_constraintTop_toBottomOf="@id/img_digikala"
+                    app:tint="@color/gray" />
+
+                <TextView
+                    android:id="@+id/txtGar2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:text="آماده ارسال از انبار دیجی کالا"
+                    android:textAlignment="center"
+                    android:textColor="@color/gray"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/img_post"
+                    app:layout_constraintEnd_toStartOf="@id/img_post"
+                    app:layout_constraintTop_toTopOf="@id/img_post" />
+
+                <View
+                    android:id="@+id/viewDiv1"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginVertical="8dp"
+                    android:alpha="0.3"
+                    android:background="@color/gray"
+                    app:layout_constraintEnd_toEndOf="@id/detail_layout"
+                    app:layout_constraintTop_toBottomOf="@+id/img_post" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="1.870,000 تومان"
+                    android:textColor="@color/green"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="@id/detail_layout"
+                    app:layout_constraintTop_toBottomOf="@id/viewDiv1" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <!--Gray Background-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/lightGray">
-
-                <!--Colors And Other Detail-->
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/layout_detail"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:paddingBottom="16dp"
-                    android:background="@color/white"
-                    android:elevation="3dp">
-
-
-                    <TextView
-                        android:id="@+id/txt_color"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="10dp"
-                        android:text="رنگ"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        app:layout_constraintEnd_toEndOf="@id/layout_detail"
-                        app:layout_constraintTop_toTopOf="@id/layout_detail" />
-
-                    <TextView
-                        android:id="@+id/txt_num_color"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="10dp"
-                        android:text="3 رنگ"
-                        android:textColor="@color/gray"
-                        android:textSize="14sp"
-                        app:layout_constraintStart_toStartOf="@id/layout_detail"
-                        app:layout_constraintTop_toTopOf="@id/layout_detail" />
-
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/rcColor"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="26dp"
-                        android:layout_marginEnd="10dp"
-                        android:orientation="horizontal"
-                        app:layout_constraintEnd_toEndOf="@id/layout_detail"
-                        app:layout_constraintStart_toStartOf="@id/layout_detail"
-                        app:layout_constraintTop_toTopOf="@id/txt_num_color"
-                        app:reverseLayout="true"
-                        tools:listitem="@layout/row_colors" />
-
-                    <LinearLayout
-                        android:id="@+id/lrGar"
-                        android:layout_width="match_parent"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical|end"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginEnd="10dp"
-                        app:layout_constraintTop_toBottomOf="@id/rcColor"
-                        app:layout_constraintRight_toRightOf="@id/layout_detail"
-                        android:layout_height="wrap_content">
-
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="گارانتی 18 ماه دیجی کالا"
-                            android:layout_marginEnd="10dp"
-                            android:id="@+id/txtGar"
-                            android:textAlignment="center"
-                            android:textColor="@color/gray"
-                            android:textStyle="bold" />
-
-                        <ImageView
-                            android:id="@+id/imggar"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/baseline_assignment_turned_in_24"
-                            app:tint="@color/gray"/>
-
-                    </LinearLayout>
-
-                    <View
-                        android:id="@+id/viewDiv"
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@color/gray"
-                        app:layout_constraintTop_toBottomOf="@+id/lrGar"
-                        app:layout_constraintLeft_toLeftOf="@id/layout_detail"
-                        app:layout_constraintRight_toRightOf="@id/layout_detail"
-                        android:layout_marginVertical="8dp"
-                        android:alpha="0.3"
-                        android:layout_marginHorizontal="10dp"/>
-
-                    <LinearLayout
-                        android:id="@+id/lrGar1"
-                        android:layout_width="match_parent"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical|end"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginEnd="10dp"
-                        app:layout_constraintTop_toBottomOf="@id/viewDiv"
-                        app:layout_constraintRight_toRightOf="@id/layout_detail"
-                        android:layout_height="wrap_content">
-
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="گارانتی 18 ماه دیجی کالا"
-                            android:layout_marginEnd="10dp"
-                            android:id="@+id/txtGar1"
-                            android:textAlignment="center"
-                            android:textColor="@color/gray"
-                            android:textStyle="bold" />
-
-                        <ImageView
-                            android:id="@+id/imggar1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/baseline_assignment_turned_in_24"
-                            app:tint="@color/gray"/>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/lrGar2"
-                        android:layout_width="match_parent"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical|end"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginEnd="10dp"
-                        app:layout_constraintTop_toBottomOf="@id/lrGar1"
-                        app:layout_constraintRight_toRightOf="@id/layout_detail"
-                        android:layout_height="wrap_content">
-
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="گارانتی 18 ماه دیجی کالا"
-                            android:layout_marginEnd="10dp"
-                            android:id="@+id/txtGar2"
-                            android:textAlignment="center"
-                            android:textColor="@color/gray"
-                            android:textStyle="bold" />
-
-                        <ImageView
-                            android:id="@+id/imggar3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/baseline_assignment_turned_in_24"
-                            app:tint="@color/gray"/>
-
-                    </LinearLayout>
-
-                    <View
-                        android:id="@+id/viewDiv1"
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@color/gray"
-                        app:layout_constraintTop_toBottomOf="@+id/lrGar2"
-                        app:layout_constraintLeft_toLeftOf="@id/layout_detail"
-                        app:layout_constraintRight_toRightOf="@id/layout_detail"
-                        android:layout_marginVertical="8dp"
-                        android:alpha="0.3"
-                        android:layout_marginHorizontal="10dp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="1.870,000 تومان"
-                        android:textSize="18sp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginBottom="16dp"
-                        android:textColor="@color/green"
-                        app:layout_constraintTop_toBottomOf="@id/viewDiv1"
-                        app:layout_constraintStart_toStartOf="@id/layout_detail"/>
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </LinearLayout>
-
-        </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
 
