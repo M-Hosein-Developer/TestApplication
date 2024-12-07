@@ -6,6 +6,7 @@
     <color name="lightGray">#F0F0F0</color>
     <color name="red">#EF3F3E</color>
     <color name="blue">#0091EA</color>
+    <color name="light_blue">#00B8D4</color>
     <color name="yellow">#FFD600</color>
     <color name="green">#00C853</color>
 </resources>
