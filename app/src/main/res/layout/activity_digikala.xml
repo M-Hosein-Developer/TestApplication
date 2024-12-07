@@ -293,11 +293,11 @@
                     android:id="@+id/rcColor"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="26dp"
+                    android:layout_marginTop="18dp"
                     android:layout_marginEnd="10dp"
                     android:orientation="horizontal"
                     app:layout_constraintEnd_toEndOf="@+id/detail_layout"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/txt_color"
                     app:reverseLayout="true"
                     tools:listitem="@layout/product_colors_item" />
