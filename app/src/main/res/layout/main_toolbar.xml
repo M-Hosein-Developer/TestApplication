@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:paddingTop="8dp"
     android:layout_height="wrap_content">
 
     <androidx.appcompat.widget.Toolbar
@@ -12,7 +13,7 @@
 
 
         <ImageButton
-            android:id="@+id/btn_left"
+            android:id="@+id/btn_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/baseline_arrow_back_ios_24"
@@ -33,11 +34,11 @@
 
 
         <ImageButton
-            android:id="@+id/btn_right"
+            android:id="@+id/btn_favorite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/baseline_favorite_24"
-            android:layout_marginEnd="10dp"
+            android:layout_marginEnd="12dp"
             android:contentDescription="@null"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:layout_gravity="end|center_vertical" />

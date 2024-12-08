@@ -60,14 +60,18 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun categoryList(category : List<String>){
-        binding.rvCategory.adapter = CategoryAdapter(category)
-        binding.rvCategory.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        binding.apply {
+            rvCategory.adapter = CategoryAdapter(category)
+            rvCategory.layoutManager = LinearLayoutManager(this@HomeActivity, LinearLayoutManager.HORIZONTAL, false)
+        }
     }
 
     private fun productList(product: List<ProductModel>) {
-        binding.rvProduct.layoutManager = GridLayoutManager(this ,2)
-        binding.rvProduct.adapter = ProductAdapter(product , this){ id ->
-            DetailActivity.showDetail(this@HomeActivity , id)
+        binding.apply {
+            rvProduct.layoutManager = GridLayoutManager(this@HomeActivity, 2)
+            rvProduct.adapter = ProductAdapter(product, this@HomeActivity) { id ->
+                DetailActivity.showDetail(this@HomeActivity, id)
+            }
         }
     }
 

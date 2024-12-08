@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import ir.androidcoder.myapplication.R
+import ir.androidcoder.myapplication.databinding.ActivityDetailBinding
 import ir.androidcoder.myapplication.util.Constants.EXTRA_PRODUCT_ID
 
 class DetailActivity : AppCompatActivity() {
@@ -23,28 +24,54 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
+    private lateinit var binding : ActivityDetailBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_detail)
+        binding = ActivityDetailBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
+        //fake data
+        val data = intent.extras?.getInt(EXTRA_PRODUCT_ID)
         val product = listOf(
-            ProductModel(1, R.drawable.caffe2, "Caffe Mocha" , "Deep Foam" , "4.5" , 4.8f),
-            ProductModel(2, R.drawable.caffe3, "Flat White" , "Espresso" , "3.53" , 4.8f),
-            ProductModel(3, R.drawable.caffe5, "Caffe Mocha" , "Deep Foam" , "4.53" , 4.8f),
-            ProductModel(4, R.drawable.caffe4, "Caffe Mocha" , "Deep Foam" , "4.53" , 4.8f),
-            ProductModel(5, R.drawable.caffe1, "Caffe Mocha" , "Deep Foam" , "4.53" , 4.8f),
+            ProductModel(1, R.drawable.caffe2, "Caffe Mocha", "Deep Foam", "4.5", 4.8f),
+            ProductModel(2, R.drawable.caffe3, "Flat White", "Espresso", "3.53", 4.8f),
+            ProductModel(3, R.drawable.caffe5, "Caffe Mocha", "Deep Foam", "4.53", 4.8f),
+            ProductModel(4, R.drawable.caffe4, "Caffe Mocha", "Deep Foam", "4.53", 4.8f),
+            ProductModel(5, R.drawable.caffe1, "Caffe Mocha", "Deep Foam", "4.53", 4.8f),
         )
 
-        val data = intent.extras?.getInt(EXTRA_PRODUCT_ID)
+        if (data != null) {
+            setupToolbar(product, data)
+            product.onEach { it ->
+                if (data == it.id)
+                    setupUi(it)
+            }
+        }
+
+    }
+
+    private fun setupUi(data: ProductModel) {
+        binding.apply {
 
 
-        Toast.makeText(this@DetailActivity, "hiii + $data", Toast.LENGTH_SHORT).show()
-        
+
+        }
+    }
+
+    private fun setupToolbar(product: List<ProductModel>, data: Int) {
+        binding.apply {
+            toolbar.toolbarTitle.text = product[data - 1].title
+            toolbar.btnBack.setOnClickListener { finish() }
+            toolbar.btnFavorite.setOnClickListener {
+                Toast.makeText(this@DetailActivity, product[data - 1].title + " add to favorite list", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 }
