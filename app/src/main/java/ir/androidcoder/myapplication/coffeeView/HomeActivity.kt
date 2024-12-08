@@ -67,7 +67,7 @@ class HomeActivity : AppCompatActivity() {
     private fun productList(product: List<ProductModel>) {
         binding.rvProduct.layoutManager = GridLayoutManager(this ,2)
         binding.rvProduct.adapter = ProductAdapter(product , this){ id ->
-
+            DetailActivity.showDetail(this@HomeActivity , id)
         }
     }
 
