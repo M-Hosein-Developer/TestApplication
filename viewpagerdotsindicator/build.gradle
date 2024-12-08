@@ -1,0 +1,40 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdk 34
+
+    defaultConfig {
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0" // Ensure 'version' is a defined string.
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation 'junit:junit:4.13.2' // Updated to the latest stable version.
+    implementation 'androidx.appcompat:appcompat:1.6.1' // Migrated to AndroidX.
+    implementation 'androidx.dynamicanimation:dynamicanimation:1.1.0' // Migrated to AndroidX.
+}
+
+buildscript {
+    repositories {
+        google() // Recommended as the first repository.
+        mavenCentral() // JCenter is deprecated.
+    }
+    dependencies {
+        // Remove outdated bintray plugin as JFrog services are deprecated.
+        // Consider alternatives like Maven Publish plugin for deployment.
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1' // Retained as needed.
+    }
+}
+
+// Apply a Gradle deployment script if required.
+apply from: 'deploy.gradle'

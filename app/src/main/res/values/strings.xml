@@ -10,4 +10,10 @@
     <string name="sell_digikala">فروش توسط دیجی کالا</string>
     <string name="post_digikala">آماده ارسال از انبار دیجی کالا</string>
     <string name="product_price">1.870,000 تومان</string>
+    <string name="get_started">Get Started</string>
+    <string name="welcome_to_our_cozy_coffee_corner_where_every_cup_is_a_delightful_for_you">Welcome to our cozy coffee corner, where every cup is a delightful for you.</string>
+    <string name="fall_in_love_with_coffee_in_blissful_delight">Fall in love with Coffee in Blissful Delight!</string>
+    <string name="location">Location</string>
+    <string name="bilzen_tanjungbalai">Bilzen, Tanjungbalai</string>
+    <string name="serach_coffee">Serach coffee</string>
 </resources>
