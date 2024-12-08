@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".coffeeView.DetailActivity">
 
-
+    <include layout="@layout/main_toolbar"/>
 
 
 
