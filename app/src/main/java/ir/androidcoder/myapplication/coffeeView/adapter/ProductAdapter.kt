@@ -1,5 +1,6 @@
 package ir.androidcoder.myapplication.coffeeView.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -21,14 +22,13 @@ class ProductAdapter(private val data : List<ProductModel> , private val context
 
                 txtProductTitle.text = productModel.title
                 txtProductDescription.text = productModel.description
-                txtProductPrice.text = productModel.price
+                txtProductPrice.text = "$ ${productModel.price}"
 
                 root.setOnClickListener {
                     onItemClicked(productModel.id)
                 }
             }
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {

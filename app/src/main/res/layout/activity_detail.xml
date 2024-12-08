@@ -15,6 +15,60 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
 
+    <ImageView
+       android:layout_width="0dp"
+       android:layout_height="0dp"
+       android:src="@drawable/caffe1"
+       android:id="@+id/img_detail_poster"
+       android:scaleType="centerCrop"
+       app:layout_constraintDimensionRatio="3:2"
+       app:layout_constraintTop_toBottomOf="@id/toolbar"
+       app:layout_constraintEnd_toEndOf="@id/guideline13"
+       app:layout_constraintStart_toStartOf="@id/guideline12"/>
+
+
+    <TextView
+        android:id="@+id/txt_detail_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Coffee Mocha"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="@+id/guideline12"
+        app:layout_constraintTop_toBottomOf="@+id/img_detail_poster" />
+
+    <TextView
+        android:id="@+id/txt_detail_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ice/hot"
+        android:textColor="@color/text_gray"
+        android:textSize="14sp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/guideline12"
+        app:layout_constraintTop_toBottomOf="@+id/txt_detail_title" />
+
+
+    <!--guid line-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="24dp"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_end="24dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
