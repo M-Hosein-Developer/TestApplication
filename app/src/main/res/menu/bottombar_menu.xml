@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:icon="@drawable/outline_home_24"
+        android:title="home"/>
+
+    <item android:icon="@drawable/baseline_favorite_24"
+        android:title="favorite"/>"/>
+
+    <item android:icon="@drawable/outline_home_24"
+        android:title="home"/>
+
+    <item android:icon="@drawable/baseline_favorite_24"
+        android:title="favorite"/>"/>
+
+</menu>
