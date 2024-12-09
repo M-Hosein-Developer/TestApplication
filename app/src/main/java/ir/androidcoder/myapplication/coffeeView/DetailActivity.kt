@@ -84,7 +84,10 @@ class DetailActivity : AppCompatActivity() {
     private fun setupToolbar(product: List<ProductModel>, data: Int) {
         binding.apply {
             toolbar.toolbarTitle.text = product[data - 1].title
-            toolbar.btnBack.setOnClickListener { finish() }
+            toolbar.btnBack.setOnClickListener {
+                onBackPressedDispatcher
+                finish()
+            }
             toolbar.btnFavorite.setOnClickListener {
                 Toast.makeText(this@DetailActivity, product[data - 1].title + " add to favorite list", Toast.LENGTH_SHORT).show()
             }
