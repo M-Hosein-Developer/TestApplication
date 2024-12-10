@@ -5,32 +5,40 @@ import android.os.Bundle
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import dagger.hilt.android.AndroidEntryPoint
 import ir.androidcoder.myapplication.R
 import ir.androidcoder.myapplication.databinding.ActivityDigikalaBinding
+import ir.androidcoder.myapplication.databinding.ActivityMainBinding
+import ir.androidcoder.myapplication.viewModel.MainViewModel
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-//    private val mainViewModel : MainViewModel by viewModels()
-//    lateinit var adapter : PostAdapter
+    private val mainViewModel : MainViewModel by viewModels()
+    private val posAdapter = PostAdapter()
 
 
-    private lateinit var binding : ActivityDigikalaBinding
+    private lateinit var binding : ActivityMainBinding
     private lateinit var adapter: ColorAdapter
     private lateinit var pagedAdapter: ProductPagerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        binding = ActivityDigikalaBinding.inflate(layoutInflater)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        //        initUi(mainViewModel)
 
+        initUi(mainViewModel)
+
+        /*
         //fake data
         val list = listOf(
 
@@ -55,10 +63,11 @@ class MainActivity : AppCompatActivity() {
         )
 
         colorsAdapter(list)
-        imageSlider(data)
-
+        imageSlider(data
+         */
     }
 
+    /*
     private fun colorsAdapter(list: List<AllColor>) {
         binding.apply {
             adapter = ColorAdapter(list)
@@ -124,22 +133,21 @@ class MainActivity : AppCompatActivity() {
             }
         })
     }
+     */
 
+    private fun initUi(mainViewModel: MainViewModel) {
 
-    /*private fun initUi(mainViewModel: MainViewModel) {
+        binding.apply {
+            postList.adapter = posAdapter
+            postList.layoutManager = LinearLayoutManager(this@MainActivity , LinearLayoutManager.VERTICAL , false)
+        }
 
         lifecycleScope.launch {
-            mainViewModel.post.collect {
-                it?.let {
-                    binding.apply {
-                        adapter = PostAdapter(it)
-                        postList.adapter = adapter
-                        postList.layoutManager = LinearLayoutManager(this@MainActivity , LinearLayoutManager.VERTICAL , false)
-                    }
-                }
+            mainViewModel.pageByPagePosts.collectLatest {
+                posAdapter.submitData(it)
             }
         }
 
     }
-     */
+
 }

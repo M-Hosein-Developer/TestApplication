@@ -3,6 +3,7 @@ package ir.androidcoder.myapplication.viewModel
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.paging.cachedIn
 import dagger.hilt.android.lifecycle.HiltViewModel
 import ir.androidcoder.domain.model.PostDEntity
 import ir.androidcoder.domain.usecase.PostUsecase
@@ -31,5 +32,8 @@ class MainViewModel @Inject constructor(private val postUsecase: PostUsecase) : 
             }
         }
     }
+
+    //Paging3
+    val pageByPagePosts = postUsecase.getPageByPagePosts().flow.cachedIn(viewModelScope)
 
 }

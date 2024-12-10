@@ -12,6 +12,6 @@ class PostUsecase(private val postRepository: PostRepository) {
 
     suspend fun getPostById(id : Int) = postRepository.getPostById(id)
 
-    fun gerPageByPagePosts() : Pager<Int , PostDEntity> = postRepository.gerPageByPagePosts()
+    fun getPageByPagePosts() : Pager<Int , PostDEntity> = postRepository.gerPageByPagePosts()
 
 }

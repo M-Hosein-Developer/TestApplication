@@ -12,8 +12,10 @@ constraintlayout = "2.2.0"
 jetbrainsKotlinJvm = "1.9.24"
 pagingCommonAndroid = "3.3.4"
 pagingCommonJvm = "3.3.4"
+paging = "3.3.4"
 
 [libraries]
+androidx-paging-common = { group = "androidx.paging", name = "paging-common", version.ref = "paging" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
