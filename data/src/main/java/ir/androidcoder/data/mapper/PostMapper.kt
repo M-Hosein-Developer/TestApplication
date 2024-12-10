@@ -16,3 +16,9 @@ fun PostEntity.toDomain() : PostDEntity = PostDEntity(
     body = body,
     title = title
 )
+
+fun PostResponse.toDomain() : PostDEntity = PostDEntity(
+    id = id,
+    body = body,
+    title = title
+)

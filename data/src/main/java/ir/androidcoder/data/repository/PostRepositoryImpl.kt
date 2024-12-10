@@ -1,5 +1,6 @@
 package ir.androidcoder.data.repository
 
+import androidx.paging.Pager
 import ir.androidcoder.data.mapper.toDomain
 import ir.androidcoder.data.source.PostSource
 import ir.androidcoder.domain.model.PostDEntity
@@ -14,6 +15,8 @@ class PostRepositoryImpl @Inject constructor(private val postSource: PostSource)
     override fun getPostFromDb(): Flow<List<PostDEntity>> = postSource.getPostFromDb()
 
     override suspend fun getPostById(id: Int): PostDEntity = postSource.getPostById(id).toDomain()
+
+    override fun gerPageByPagePosts(): Pager<Int, PostDEntity> = postSource.getPageByPagePosts()
 
 
 }
