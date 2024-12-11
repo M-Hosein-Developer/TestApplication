@@ -16,6 +16,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import ir.androidcoder.myapplication.R
 import ir.androidcoder.myapplication.databinding.ActivityDigikalaBinding
 import ir.androidcoder.myapplication.databinding.ActivityMainBinding
+import ir.androidcoder.myapplication.view.baseAdapter.PostTAdapter
 import ir.androidcoder.myapplication.viewModel.MainViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -25,7 +26,7 @@ import kotlinx.coroutines.launch
 class MainActivity : AppCompatActivity() {
 
     private val mainViewModel : MainViewModel by viewModels()
-    private val posAdapter = PostAdapter()
+    private val posAdapter = PostTAdapter()
 
 
     private lateinit var binding : ActivityMainBinding

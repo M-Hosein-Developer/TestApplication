@@ -13,6 +13,7 @@ jetbrainsKotlinJvm = "1.9.24"
 pagingCommonAndroid = "3.3.4"
 pagingCommonJvm = "3.3.4"
 paging = "3.3.4"
+databindingRuntime = "8.7.3"
 
 [libraries]
 androidx-paging-common = { group = "androidx.paging", name = "paging-common", version.ref = "paging" }
@@ -26,6 +27,7 @@ androidx-activity = { group = "androidx.activity", name = "activity", version.re
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 androidx-paging-common-android = { group = "androidx.paging", name = "paging-common-android", version.ref = "pagingCommonAndroid" }
 androidx-paging-common-jvm = { group = "androidx.paging", name = "paging-common-jvm", version.ref = "pagingCommonJvm" }
+androidx-databinding-runtime = { group = "androidx.databinding", name = "databinding-runtime", version.ref = "databindingRuntime" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
