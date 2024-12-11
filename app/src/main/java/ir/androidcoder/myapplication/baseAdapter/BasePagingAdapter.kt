@@ -1,4 +1,4 @@
-package ir.androidcoder.myapplication.view.baseAdapter
+package ir.androidcoder.myapplication.baseAdapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

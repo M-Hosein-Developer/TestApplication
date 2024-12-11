@@ -1,23 +1,17 @@
 package ir.androidcoder.myapplication.view
 
-import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
-import android.widget.ImageView
-import android.widget.LinearLayout
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import androidx.paging.LOG_TAG
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.viewpager2.widget.ViewPager2
 import dagger.hilt.android.AndroidEntryPoint
-import ir.androidcoder.myapplication.R
-import ir.androidcoder.myapplication.databinding.ActivityDigikalaBinding
-import ir.androidcoder.myapplication.databinding.ActivityMainBinding
-import ir.androidcoder.myapplication.view.baseAdapter.PostTAdapter
+import ir.androidcoder.myapplication.databinding.ActivityRickyBinding
+import ir.androidcoder.myapplication.baseAdapter.PostTAdapter
+import ir.androidcoder.myapplication.baseAdapter.RickyAdapter
 import ir.androidcoder.myapplication.viewModel.MainViewModel
+import ir.androidcoder.myapplication.viewModel.RickyViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -26,17 +20,19 @@ import kotlinx.coroutines.launch
 class MainActivity : AppCompatActivity() {
 
     private val mainViewModel : MainViewModel by viewModels()
+    private val rickyViewModel : RickyViewModel by viewModels()
     private val posAdapter = PostTAdapter()
+    private val rickyAdapter = RickyAdapter(this)
 
 
-    private lateinit var binding : ActivityMainBinding
+    private lateinit var binding : ActivityRickyBinding
     private lateinit var adapter: ColorAdapter
     private lateinit var pagedAdapter: ProductPagerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityRickyBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         initUi(mainViewModel)
@@ -140,15 +136,27 @@ class MainActivity : AppCompatActivity() {
 
     private fun initUi(mainViewModel: MainViewModel) {
 
+//        binding.apply {
+//            postList.adapter = posAdapter
+//            postList.layoutManager = LinearLayoutManager(this@MainActivity , LinearLayoutManager.VERTICAL , false)
+//        }
+//
+//        lifecycleScope.launch {
+//            mainViewModel.pageByPagePosts.collectLatest {
+//                Log.v("testData" , it.toString())
+//                posAdapter.submitData(it)
+//            }
+//        }
+
+
         binding.apply {
-            postList.adapter = posAdapter
-            postList.layoutManager = LinearLayoutManager(this@MainActivity , LinearLayoutManager.VERTICAL , false)
+            rvRicky.adapter = rickyAdapter
+            rvRicky.layoutManager = LinearLayoutManager(this@MainActivity , LinearLayoutManager.VERTICAL , false)
         }
 
         lifecycleScope.launch {
-            mainViewModel.pageByPagePosts.collectLatest {
-                Log.v("testData" , it.toString())
-                posAdapter.submitData(it)
+            rickyViewModel.getRickyAndMorty.collectLatest {
+                rickyAdapter.submitData(it)
             }
         }
 

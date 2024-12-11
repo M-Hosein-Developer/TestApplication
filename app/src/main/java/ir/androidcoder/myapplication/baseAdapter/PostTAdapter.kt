@@ -1,11 +1,11 @@
-package ir.androidcoder.myapplication.view.baseAdapter
+package ir.androidcoder.myapplication.baseAdapter
 
 import androidx.recyclerview.widget.DiffUtil
 import ir.androidcoder.domain.model.PostDEntity
 import ir.androidcoder.myapplication.R
 import ir.androidcoder.myapplication.databinding.RvPostItemBinding
 
-class PostTAdapter : BasePagingAdapter<PostDEntity , RvPostItemBinding>(
+class PostTAdapter : BasePagingAdapter<PostDEntity, RvPostItemBinding>(
     DIFF_CALLBACK ,
     {item , binding ->
         binding.apply {

@@ -17,8 +17,8 @@ class PostPagingSource(private val apiService: ApiService) : PagingSource<Int , 
         val currentPage = params.key ?: 1
         kotlinx.coroutines.delay(1000)
         val response = apiService.getPageByPagePosts(currentPage , 15).map { it -> it.toDomain() }
-        Log.v("testData1" , response.toString())
-        Log.v("testData3" , currentPage.toString())
+//        Log.v("testData1" , response.toString())
+//        Log.v("testData3" , currentPage.toString())
         LoadResult.Page(
             data = response ,
             prevKey = if (currentPage == 1) null else currentPage - 1,
