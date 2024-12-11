@@ -26,7 +26,7 @@ class PostSource @Inject constructor(private val api : ApiService , private val 
     suspend fun getPostById(id : Int) : PostEntity = dao.getPostById(id)
 
     fun getPageByPagePosts() : Pager<Int , PostDEntity> = Pager(
-        config = PagingConfig(pageSize = 5 , enablePlaceholders = false),
+        config = PagingConfig(pageSize = 15 , enablePlaceholders = false),
         pagingSourceFactory = { PostPagingSource(api) }
     )
 

@@ -12,8 +12,8 @@ interface ApiService {
     //paging
     @GET("posts")
     suspend fun getPageByPagePosts(
-        @Query("page") page: Int,
-        @Query("size") size: Int
+        @Query("_page") page: Int,
+        @Query("_limit") size: Int
     ) : List<PostResponse>
 
 }
