@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import dagger.hilt.android.AndroidEntryPoint
 import ir.androidcoder.domain.model.RickyEntity
+import ir.androidcoder.myapplication.baseAdapter.BasePagingAdapter
 import ir.androidcoder.myapplication.databinding.ActivityRickyBinding
 import ir.androidcoder.myapplication.baseAdapter.PostTAdapter
 import ir.androidcoder.myapplication.baseAdapter.RickyAdapter
@@ -27,7 +28,6 @@ class MainActivity : AppCompatActivity() {
     private val mainViewModel : MainViewModel by viewModels()
     private val rickyViewModel : RickyViewModel by viewModels()
     private val posAdapter = PostTAdapter()
-    private val rickyAdapter = RickyAdapter()
 
 
     private lateinit var binding : ActivityRickyBinding
@@ -155,31 +155,57 @@ class MainActivity : AppCompatActivity() {
 
 
         binding.apply {
-            rvRicky.adapter = rickyAdapter
+
+
+            //adapter
+            rvRicky.adapter = RickyAdapter()
             rvRicky.layoutManager = LinearLayoutManager(this@MainActivity , LinearLayoutManager.VERTICAL , false)
 
             val swipeToDeleteCallback = object : SwipeToDeleteCallback(){
                 override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                     val position = viewHolder.bindingAdapterPosition
-
-                    if (position != RecyclerView.NO_POSITION) {
-                        val snapshot = rickyAdapter.snapshot().items.filterIsInstance<RickyEntity>().toMutableList()
-                        snapshot.removeAt(position)
-                        val newPagingData = PagingData.from(snapshot)
-                        rickyAdapter.submitData(lifecycle, newPagingData)
-                    }
+                    (rvRicky.adapter as RickyAdapter).removeItem(position, lifecycleScope)
                 }
 
             }
 
             ItemTouchHelper(swipeToDeleteCallback).attachToRecyclerView(rvRicky)
+
+            val newData = RickyEntity(
+                "" ,
+                listOf("" , "" , "") ,
+                "mail" ,
+                12 ,
+                "https://rickandmortyapi.com/api/character/avatar/21.jpeg" ,
+                RickyEntity.Location("" , " "),
+                "ricky",
+                RickyEntity.Origin("" , ""),
+                "hiiiiiiiiiiiiii hellooo",
+                "hi",
+                "",
+                ""
+            )
+
+            btnAdd.setOnClickListener {
+
+                (rvRicky.adapter as RickyAdapter).addItem(0 , newData , lifecycleScope)
+
+            }
+
         }
 
         lifecycleScope.launch {
             rickyViewModel.getRickyAndMorty.collectLatest {
-                rickyAdapter.submitData(it)
+                (binding.rvRicky.adapter as RickyAdapter).submitData(it)
             }
         }
+
+    }
+
+    private fun testAdapterAndSetupBaseAdapter(){
+
+
+
 
     }
 
