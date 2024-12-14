@@ -1,34 +1,38 @@
 package ir.androidcoder.myapplication.baseAdapter
 
-import androidx.recyclerview.widget.DiffUtil
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
 import ir.androidcoder.domain.model.PostDEntity
-import ir.androidcoder.myapplication.R
 import ir.androidcoder.myapplication.databinding.RvPostItemBinding
+import ir.androidcoder.myapplication.view.PostAdapter
 
-class PostTAdapter : BasePagingAdapter<PostDEntity, RvPostItemBinding>(
-    DIFF_CALLBACK ,
-    {item , binding ->
-        binding.apply {
-            txtId.text = item.id.toString()
-            textDes.text = item.body
-            textTitle.text = item.title
-        }
-    },
-    R.layout.rv_post_item
+class PostTAdapter : BasePagingAdapter<PostDEntity, PostTAdapter.PostTViewHolder>(
+    BaseDiffCallback(
+        { oldItem, newItem -> oldItem.id == newItem.id },
+        { oldItem, newItem -> oldItem == newItem }
+    )
 ) {
 
-    companion object {
+    inner class PostTViewHolder(private val binding: RvPostItemBinding) : RecyclerView.ViewHolder(binding.root){
+        fun bind(data: PostDEntity?) {
+            if (data != null){
+                binding.apply {
 
-        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<PostDEntity>() {
-            override fun areItemsTheSame(oldItem: PostDEntity, newItem: PostDEntity): Boolean {
-                return oldItem.id == newItem.id
-            }
-
-            override fun areContentsTheSame(oldItem: PostDEntity, newItem: PostDEntity): Boolean {
-                return oldItem == newItem
+                }
             }
         }
 
     }
+
+    override fun onBindViewHolder(holder: PostTViewHolder, position: Int) {
+        holder.bind(getItem(position))
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostTViewHolder {
+        val binding = RvPostItemBinding.inflate(LayoutInflater.from(parent.context))
+        return PostTViewHolder(binding)
+    }
+
 
 }

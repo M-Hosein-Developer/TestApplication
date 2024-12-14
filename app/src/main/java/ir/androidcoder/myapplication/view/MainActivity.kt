@@ -5,11 +5,16 @@ import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import androidx.paging.PagingData
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import dagger.hilt.android.AndroidEntryPoint
+import ir.androidcoder.domain.model.RickyEntity
 import ir.androidcoder.myapplication.databinding.ActivityRickyBinding
 import ir.androidcoder.myapplication.baseAdapter.PostTAdapter
 import ir.androidcoder.myapplication.baseAdapter.RickyAdapter
+import ir.androidcoder.myapplication.baseAdapter.SwipeToDeleteCallback
 import ir.androidcoder.myapplication.viewModel.MainViewModel
 import ir.androidcoder.myapplication.viewModel.RickyViewModel
 import kotlinx.coroutines.flow.collectLatest
@@ -22,7 +27,7 @@ class MainActivity : AppCompatActivity() {
     private val mainViewModel : MainViewModel by viewModels()
     private val rickyViewModel : RickyViewModel by viewModels()
     private val posAdapter = PostTAdapter()
-    private val rickyAdapter = RickyAdapter(this)
+    private val rickyAdapter = RickyAdapter()
 
 
     private lateinit var binding : ActivityRickyBinding
@@ -152,6 +157,22 @@ class MainActivity : AppCompatActivity() {
         binding.apply {
             rvRicky.adapter = rickyAdapter
             rvRicky.layoutManager = LinearLayoutManager(this@MainActivity , LinearLayoutManager.VERTICAL , false)
+
+            val swipeToDeleteCallback = object : SwipeToDeleteCallback(){
+                override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                    val position = viewHolder.bindingAdapterPosition
+
+                    if (position != RecyclerView.NO_POSITION) {
+                        val snapshot = rickyAdapter.snapshot().items.filterIsInstance<RickyEntity>().toMutableList()
+                        snapshot.removeAt(position)
+                        val newPagingData = PagingData.from(snapshot)
+                        rickyAdapter.submitData(lifecycle, newPagingData)
+                    }
+                }
+
+            }
+
+            ItemTouchHelper(swipeToDeleteCallback).attachToRecyclerView(rvRicky)
         }
 
         lifecycleScope.launch {
