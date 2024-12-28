@@ -77,12 +77,17 @@ dependencies {
     kapt ("androidx.room:room-compiler:2.6.1")
     implementation ("androidx.room:room-ktx:2.6.1")
 
+    //Dot
     implementation("com.tbuonomo:dotsindicator:5.1.0")
 
+    //Glide
     implementation("com.github.bumptech.glide:glide:4.16.0")
     annotationProcessor("com.github.bumptech.glide:compiler:4.16.0")
 
     //paging
     implementation("androidx.paging:paging-runtime:3.3.2")
+
+
+    implementation("com.github.M-Hosein-Developer:CustomCardDialog:1.0.0")
 
 }

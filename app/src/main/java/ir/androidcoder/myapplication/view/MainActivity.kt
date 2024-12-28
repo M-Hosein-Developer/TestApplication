@@ -16,6 +16,7 @@ import ir.androidcoder.myapplication.databinding.ActivityRickyBinding
 import ir.androidcoder.myapplication.baseAdapter.PostTAdapter
 import ir.androidcoder.myapplication.baseAdapter.RickyAdapter
 import ir.androidcoder.myapplication.baseAdapter.SwipeToDeleteCallback
+import ir.androidcoder.myapplication.databinding.ActivityDigikalaBinding
 import ir.androidcoder.myapplication.viewModel.MainViewModel
 import ir.androidcoder.myapplication.viewModel.RickyViewModel
 import kotlinx.coroutines.flow.collectLatest
@@ -30,14 +31,14 @@ class MainActivity : AppCompatActivity() {
     private val posAdapter = PostTAdapter()
 
 
-    private lateinit var binding : ActivityRickyBinding
+    private lateinit var binding : ActivityDigikalaBinding
     private lateinit var adapter: ColorAdapter
     private lateinit var pagedAdapter: ProductPagerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        binding = ActivityRickyBinding.inflate(layoutInflater)
+        binding = ActivityDigikalaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         initUi(mainViewModel)
@@ -154,7 +155,7 @@ class MainActivity : AppCompatActivity() {
 //        }
 
 
-        binding.apply {
+        /*  binding.apply {
 
 
             //adapter
@@ -209,4 +210,6 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+       */
+    }
 }
